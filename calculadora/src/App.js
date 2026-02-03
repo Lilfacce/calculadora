@@ -1,3 +1,6 @@
+import { resolverPL } from "./logica/soluciones";
+import { ejemploBasico } from "./logica/ejemplos";
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -21,5 +24,6 @@ function App() {
     </div>
   );
 }
+console.log(resolverPL(ejemploBasico));
 
 export default App;
