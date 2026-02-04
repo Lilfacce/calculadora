@@ -8,7 +8,6 @@ import Resultados from "./components/Resultados";
 import { resolverPL } from "./logica/soluciones";
 
 function App() {
-  // Estados
   const [tipo, setTipo] = useState("maximizar");
 
   const [funcionObjetivo, setFuncionObjetivo] = useState({
