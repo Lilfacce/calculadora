@@ -1,64 +1,46 @@
 import { useState } from "react";
 import "./App.css";
 
-import FuncionObjetivo from "./components/FuncionObjetivo";
-import RestriccionesForm from "./components/RestriccionesForm";
-import Resultados from "./components/Resultados";
-
-import { resolverPL } from "./logica/soluciones";
+import MetodoGrafico from "./components/grafico/MetodoGrafico";   // tu UI actual
+import SimplexUI from "./components/simplex/SimplexUI";
 
 function App() {
-  const [tipo, setTipo] = useState("maximizar");
-
-  const [funcionObjetivo, setFuncionObjetivo] = useState({
-    x1: 0,
-    x2: 0,
-  });
-
-  const [restricciones, setRestricciones] = useState([
-    { x1: 0, x2: 0, op: "<=", b: 0 },
-  ]);
-
-  const [resultado, setResultado] = useState(null);
-
-  const manejarGraficar = () => {
-    const problema = {
-      tipo,
-      funcionObjetivo,
-      restricciones,
-      noNegatividad: true,
-    };
-
-    const res = resolverPL(problema);
-    setResultado(res);
-  };
-
-  const manejarLimpiar = () => {
-    setResultado(null);
-  };
+  const [modo, setModo] = useState(null);
 
   return (
     <div className="app-container">
       <h1 className="app-title">Calculadora de Programación Lineal</h1>
 
-      <FuncionObjetivo
-        tipo={tipo}
-        setTipo={setTipo}
-        funcionObjetivo={funcionObjetivo}
-        setFuncionObjetivo={setFuncionObjetivo}
-      />
+      {/* MENÚ PRINCIPAL */}
+      {!modo && (
+        <div className="menu">
+          <h2>¿Qué deseas hacer?</h2>
 
-      <RestriccionesForm
-        restricciones={restricciones}
-        setRestricciones={setRestricciones}
-      />
+          <button onClick={() => setModo("grafico")}>
+            Método Gráfico
+          </button>
 
-      <div className="button-group">
-        <button onClick={manejarGraficar}>Graficar</button>
-        <button onClick={manejarLimpiar}>Limpiar</button>
-      </div>
+          <button onClick={() => setModo("simplex")}>
+            Método Simplex
+          </button>
+        </div>
+      )}
 
-      <Resultados resultado={resultado} />
+      {/* MÉTODO GRÁFICO */}
+      {modo === "grafico" && (
+        <>
+          <button onClick={() => setModo(null)}>⬅ Volver al menú</button>
+          <MetodoGrafico />
+        </>
+      )}
+
+      {/* MÉTODO SIMPLEX */}
+      {modo === "simplex" && (
+        <>
+          <button onClick={() => setModo(null)}>⬅ Volver al menú</button>
+          <SimplexUI />
+        </>
+      )}
     </div>
   );
 }
