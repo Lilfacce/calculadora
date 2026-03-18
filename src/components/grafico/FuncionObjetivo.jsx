@@ -13,7 +13,7 @@ function FuncionObjetivo({ tipo, setTipo, funcionObjetivo, setFuncionObjetivo })
 
       <div>
         <input
-          type="text"
+          type="number"
           placeholder="Coeficiente x1"
           value={funcionObjetivo.x1}
           onChange={(e) =>
@@ -26,7 +26,7 @@ function FuncionObjetivo({ tipo, setTipo, funcionObjetivo, setFuncionObjetivo })
         <span>x1 +</span>
 
         <input
-          type="text"
+          type="number"
           placeholder="Coeficiente x2"
           value={funcionObjetivo.x2}
           onChange={(e) =>

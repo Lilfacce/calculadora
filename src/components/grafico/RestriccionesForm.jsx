@@ -31,7 +31,7 @@ function RestriccionesForm({ restricciones, setRestricciones }) {
       {restricciones.map((r, index) => (
         <div key={index} className="restriccion-row">
           <input
-            type="text"
+            type="number"
             placeholder="Coef x"
             value={r.x1}
             onChange={(e) =>
@@ -43,7 +43,7 @@ function RestriccionesForm({ restricciones, setRestricciones }) {
           <span>+</span>
 
           <input
-            type="text"
+            type="number"
             placeholder="Coef y"
             value={r.x2}
             onChange={(e) =>
@@ -64,7 +64,7 @@ function RestriccionesForm({ restricciones, setRestricciones }) {
           </select>
 
           <input
-            type="text"
+            type="number"
             placeholder="b"
             value={r.b}
             onChange={(e) =>
