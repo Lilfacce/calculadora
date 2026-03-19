@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 
-import MetodoGrafico from "./components/grafico/MetodoGrafico";   // tu UI actual
+import MetodoGrafico from "./components/grafico/MetodoGrafico";
 import SimplexUI from "./components/simplex/SimplexUI";
+import GranMUI from "./components/gran_m/GranMUI";
 
 function App() {
   const [modo, setModo] = useState(null);
@@ -23,6 +24,10 @@ function App() {
           <button onClick={() => setModo("simplex")}>
             Método Simplex
           </button>
+
+          <button onClick={() => setModo("gran_m")}>
+            Método gran M
+          </button>
         </div>
       )}
 
@@ -39,6 +44,14 @@ function App() {
         <>
           <button onClick={() => setModo(null)}>⬅ Volver al menú</button>
           <SimplexUI />
+        </>
+      )}
+
+      {/* MÉTODO GRAN M */}
+      {modo === "gran_m" && (
+        <>
+          <button onClick={() => setModo(null)}>⬅ Volver al menú</button>
+          <GranMUI />
         </>
       )}
     </div>
