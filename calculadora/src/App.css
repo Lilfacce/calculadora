@@ -1,0 +1,145 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo general */
+body {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1e293b;
+}
+
+/* Contenedor principal */
+.app-container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+.app-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #0284c7;
+}
+
+/* Secciones */
+.section {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Subtítulos */
+.section h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #0369a1;
+}
+
+/* Inputs */
+input,
+select {
+  background-color: #ffffff;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: #1e293b;
+  width: 70px;
+  margin-right: 6px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+}
+
+/* Filas */
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+/* Botones */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(14, 165, 233, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Resultados */
+.resultados {
+  margin-top: 25px;
+  padding: 20px;
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+}
+
+.resultados h3 {
+  color: #16a34a;
+  margin-bottom: 10px;
+}
+
+/* Texto */
+p {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 20px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
