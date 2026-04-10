@@ -4,13 +4,15 @@ import "./App.css";
 import MetodoGrafico from "./components/grafico/MetodoGrafico";
 import SimplexUI from "./components/simplex/SimplexUI";
 import GranMUI from "./components/gran_m/GranMUI";
+import BiseccionUI from "./components/biseccion/BiseccionUI";
+import TransporteUI from "./components/transporte/TransporteUI"; // 👈 NUEVO
 
 function App() {
   const [modo, setModo] = useState(null);
 
   return (
     <div className="app-container">
-      <h1 className="app-title">Calculadora de Programación Lineal</h1>
+      <h1 className="app-title">Calculadora de Métodos Numéricos</h1>
 
       {/* MENÚ PRINCIPAL */}
       {!modo && (
@@ -26,7 +28,16 @@ function App() {
           </button>
 
           <button onClick={() => setModo("gran_m")}>
-            Método gran M
+            Método Gran M
+          </button>
+
+          <button onClick={() => setModo("biseccion")}>
+            Método de Bisección
+          </button>
+
+          {/* 👇 NUEVO BOTÓN */}
+          <button onClick={() => setModo("transporte")}>
+            Métodos de Transporte
           </button>
         </div>
       )}
@@ -52,6 +63,22 @@ function App() {
         <>
           <button onClick={() => setModo(null)}>⬅ Volver al menú</button>
           <GranMUI />
+        </>
+      )}
+
+      {/* MÉTODO BISECCIÓN */}
+      {modo === "biseccion" && (
+        <>
+          <button onClick={() => setModo(null)}>⬅ Volver al menú</button>
+          <BiseccionUI />
+        </>
+      )}
+
+      {/* 👇 NUEVA SECCIÓN TRANSPORTE */}
+      {modo === "transporte" && (
+        <>
+          <button onClick={() => setModo(null)}>⬅ Volver al menú</button>
+          <TransporteUI />
         </>
       )}
     </div>
